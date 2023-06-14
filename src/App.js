@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useEffect} from "react";
+import Header from "./Components/Header/Header";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import AppRoutes from "./Components/AppRoutes/AppRoutes";
+import Footer from "./Components/Footer/Footer";
+import {useDispatch} from "react-redux";
+import {getCategories} from "./redux/categories/categoriesSlice";
+import {getProducts} from "./redux/products/productsSlice";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getProducts())
+        dispatch(getCategories())
+    }, [dispatch])
+
+    return (
+        <div className="App">
+            <Header/>
+            <div className="container">
+                <Sidebar/>
+                <AppRoutes/>
+            </div>
+            <Footer/>
+        </div>
+    );
 }
 
 export default App;

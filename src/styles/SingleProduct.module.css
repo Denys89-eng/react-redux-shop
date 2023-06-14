@@ -1,0 +1,36 @@
+.product{
+    width: 900px;
+    height: max-content;
+    background: black;
+    color: white;
+}
+.images{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+.image-list{
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.current{
+    width: 400px;
+    height: 400px;
+}
+
+.image{
+    width: 200px;
+    height: 200px;
+}
+.wrap {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.active{
+    background: fuchsia;
+}
